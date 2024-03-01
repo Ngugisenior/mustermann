@@ -208,7 +208,7 @@ function repo_manager(){
 			if [[ $(echo "${choice_input}" | tr '[:lower:]' '[:upper:]' ) == "U" ]]; then
 				case $database_index in
 					"1"|"2")
-						repo_upgrade "${database_username}" "${database_password}" $(repo_database_type $("${database_index}" - 1)) ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
+						repo_upgrade "${database_username}" "${database_password}" $(repo_database_type $((database_index - 1))) ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
 					;;
 
 					"3")
@@ -258,7 +258,7 @@ function repo_manager(){
 			elif [[ $(echo "${choice_input}" | tr '[:lower:]' '[:upper:]' ) == "C" ]];then
 				case $database_index in
 					"1"|"2")
-						SAP_HANA_Repo_Creation "${database_username}" "${database_password}" $(repo_database_type $("${database_index}" - 1)) ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
+						SAP_HANA_Repo_Creation "${database_username}" "${database_password}" $(repo_database_type $((database_index - 1))) ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
 					;;
 
 					"3")
