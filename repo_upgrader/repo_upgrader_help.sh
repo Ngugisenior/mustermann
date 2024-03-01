@@ -255,7 +255,7 @@ function repo_manager(){
 			elif [[ $(echo "${choice_input}" | tr '[:lower:]' '[:upper:]' ) == "C" ]];then
 				case $database_choice in
 					"1")
-						SAP_HANA_Repo_Creation "${database_username}" "${database_password}" "${database_type}" ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
+						SAP_HANA_Repo_Creation "${database_username}" "${database_password}" "HANA" ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
 					;;
 					"2")
 						Microsoft_SQL_Repo_Creation
