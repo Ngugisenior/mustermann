@@ -1,5 +1,12 @@
 #!/usr/bin/sh
 
+# This script assumes the following
+#	1. All the repositories are of the same database type
+#	2. They belong to the same Database Server
+#	3. They all use the same Database username
+#	4. They all use the same Database password
+
+
 # TODO: Support for the following Databases
 #       - HANA
 #       - Microsoft_SQL_Server
@@ -20,7 +27,17 @@
 choices=("V" "U" "u" "v" "C" "c")
 
 
+# returns the database type based on the index 
+function repo_database_type(){
+	DATABASE_TYPES=("HANA" "Microsoft_SQL_Server" "Oracle" "Sybase" "SQL_Anywhere" "DB2" "MySQL")
+	echo "${DATABASE_TYPES[$1]}"
+}
 
+
+function repo_version_check(){
+	$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -v
+	printf "\n$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -v \n"
+}
 
 ####################################################### SAP HANA ##########################################################################################
 # TODO: Commands for SAP HANA upgrade
@@ -35,11 +52,13 @@ function SAP_HANA_Repo_Creation(){
     printf "\n$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -c -d -o \n"
 }
 
-# TODO: Commands for SAP HANA repository version check
-function SAP_HANA_Version_Check(){
-	$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -v
-	printf "\n$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -v \n"
-}
+# # TODO: Commands for SAP HANA repository version check
+# function SAP_HANA_Version_Check(){
+# 	repo_version_check
+# 	# $LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -v
+# 	# printf "\n$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -v \n"
+# }
+
 
 ####################################################### Microsoft SQL Server ##########################################################################################
 # TODO: Commands for Microsoft SQL Server repository upgrade
@@ -172,7 +191,7 @@ function repo_manager(){
 
 		printf "Specify one database type:\n1) SAP HANA\n2) Microsoft SQL Server\n3) Oracle\n4) Sybase\n5) SQL Anywhere\n6)IBM DB2\n7) MySQL\n"
 
-		read database_choice
+		read database_index
 
 		echo "Provide the Database Server Name:"
 		read database_server_name
@@ -199,12 +218,12 @@ function repo_manager(){
 		for repo in "${database_repo[@]}";do
 			printf "\n${repo}\n"
 			if [[ $(echo "${choice_input}" | tr '[:lower:]' '[:upper:]' ) == "U" ]]; then
-				case $database_choice in
-					"1")
-						SAP_HANA_Upgrade "${database_username}" "${database_password}" "HANA" ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
+				case $database_index in
+					"1"|"2")
+						repo_upgrade "${database_username}" "${database_password}" $(repo_database_type "${database_index}") ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
 					;;
-					"2")
-						Microsoft_SQL_Server_Upgrade
+					# "2")
+					# 	Microsoft_SQL_Server_Upgrade
 					;;
 					"3")
 						Oracle_Upgrade
@@ -226,12 +245,12 @@ function repo_manager(){
 					;;
 				esac
 			elif [[ $(echo "${choice_input}" | tr '[:lower:]' '[:upper:]' ) == "V" ]];then
-				case $database_choice in
-					"1")
-						SAP_HANA_Version_Check "${database_username}" "${database_password}" "HANA" ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
+				case $database_index in
+					"1"|"2")
+						repo_version_check "${database_username}" "${database_password}" $(repo_database_type "${database_index}") ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
 					;;
-					"2")
-						Microsoft_SQL_Server_Version_Check
+					# "2")
+					# 	repo_version_check "${database_username}" "${database_password}" "HANA" ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
 					;;
 					"3")
 						Oracle_Version_Check
@@ -253,7 +272,7 @@ function repo_manager(){
 					;;
 				esac
 			elif [[ $(echo "${choice_input}" | tr '[:lower:]' '[:upper:]' ) == "C" ]];then
-				case $database_choice in
+				case $database_index in
 					"1")
 						SAP_HANA_Repo_Creation "${database_username}" "${database_password}" "HANA" ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
 					;;
