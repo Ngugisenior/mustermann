@@ -1,4 +1,22 @@
 #!/usr/bin/sh
+
+# TODO: Support for the following Databases
+#       - HANA
+#       - Microsoft_SQL_Server
+#	- Oracle
+#	- MySQL
+#	- DB2
+#	- Sybase
+#	- SQL_Anywhere
+
+# TODO: Support SSL/TLS for each database Repo type
+
+# TODO: Support the following authentication methods for Microsoft SQL Server
+#	- SQLServer
+#	- Windows
+#	- Azure_AD_Password
+
+
 choices=("V" "U" "u" "v" "C" "c")
 
 printf "Do you want to [C]reate/([U]pgrade/[V]ersion)\n"
