@@ -156,8 +156,7 @@ function SAP_HANA_Repo_Creation(){
 }
 
 # TODO: Commands for SAP HANA repository version check
-SAP_HANA_Version_Check(){
-	echo $1
+function SAP_HANA_Version_Check(){
 	$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -v
 	printf "\n$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -v \n"
 }
