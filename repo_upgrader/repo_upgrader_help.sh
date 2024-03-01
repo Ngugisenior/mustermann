@@ -224,7 +224,7 @@ function repo_manager(){
 					;;
 					# "2")
 					# 	Microsoft_SQL_Server_Upgrade
-					;;
+					# ;;
 					"3")
 						Oracle_Upgrade
 					;;
