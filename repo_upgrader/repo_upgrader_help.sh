@@ -247,7 +247,7 @@ function repo_manager(){
 			elif [[ $(echo "${choice_input}" | tr '[:lower:]' '[:upper:]' ) == "V" ]];then
 				case $database_index in
 					"1"|"2")
-						repo_version_check "${database_username}" "${database_password}" $(repo_database_type $("${database_index}" - 1)) ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
+						repo_version_check "${database_username}" "${database_password}" $(repo_database_type $((database_index - 1))) ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
 					;;
 					# "2")
 					# 	repo_version_check "${database_username}" "${database_password}" "HANA" ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
