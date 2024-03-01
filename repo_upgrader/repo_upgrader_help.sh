@@ -144,13 +144,13 @@ fi
 
 ####################################################### SAP HANA ##########################################################################################
 # TODO: Commands for SAP HANA upgrade
-function SAP_HANA_Upgrade{
+function SAP_HANA_Upgrade(){
 	$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -u -d
 	printf "\n$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -u -d\n"
 }
 
 # TODO: Commands for SAP HANA repository creation
-function SAP_HANA_Repo_Creation{
+function SAP_HANA_Repo_Creation(){
 	$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -c -d -o
     printf "\n$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -c -d -o \n"
 }
@@ -164,19 +164,19 @@ SAP_HANA_Version_Check(){
 
 ####################################################### Microsoft SQL Server ##########################################################################################
 # TODO: Commands for Microsoft SQL Server repository upgrade
-function Microsoft_SQL_Server_Upgrade{
+function Microsoft_SQL_Server_Upgrade(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -u -d
 	printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -u -d\n"
 }
 
 # TODO: Commands for Microsoft SQL Server repository creation
-function Microsoft_SQL_Server_Repo_Creation{
+function Microsoft_SQL_Server_Repo_Creation(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o
     printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o \n"
 }
 
 # TODO: Commands for Microsoft SQL Server repository version check
-function Microsoft_SQL_Server_Version_Check{
+function Microsoft_SQL_Server_Version_Check(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v
 	printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v \n"
 }
@@ -184,19 +184,19 @@ function Microsoft_SQL_Server_Version_Check{
 
 ####################################################### Oracle ##########################################################################################
 # TODO: Commands for Oracle upgrade
-function Oracle_Upgrade{
+function Oracle_Upgrade(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -u -d
 	printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -u -d\n"
 }
 
 # TODO: Commands for Oracle repository creation
-function Oracle_Repo_Creation{
+function Oracle_Repo_Creation(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o
     printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o \n"
 }
 
 # TODO: Commands for Oracle repository version check
-function Oracle_Version_Check{
+function Oracle_Version_Check(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v
 	printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v \n"
 }
@@ -204,19 +204,19 @@ function Oracle_Version_Check{
 
 ####################################################### Sybase ##########################################################################################
 # TODO: Commands for Sybase upgrade
-function Sybase_Upgrade{
+function Sybase_Upgrade(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -u -d
 	printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -u -d\n"
 }
 
 # TODO: Commands for Sybase repository creation
-function Sybase_Repo_Creation{
+function Sybase_Repo_Creation(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o
     printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o \n"
 }
 
 # TODO: Commands for Sybase repository version check
-function Sybase_Version_Check{
+function Sybase_Version_Check(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v
 	printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v \n"
 }
@@ -224,19 +224,19 @@ function Sybase_Version_Check{
 
 ####################################################### SQL Anywhere ##########################################################################################
 # TODO: Commands for SQL Anywhere upgrade
-function SQL_Anywhere_Upgrade{
+function SQL_Anywhere_Upgrade(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -u -d
 	printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -u -d\n"
 }
 
 # TODO: Commands for SQL Anywhere repository creation
-function SQL_Anywhere_Repo_Creation{
+function SQL_Anywhere_Repo_Creation(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o
     printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o \n"
 }
 
 # TODO: Commands for SQL Anywhere repository version check
-function SQL_Anywhere_Version_Check{
+function SQL_Anywhere_Version_Check(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v
 	printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v \n"
 }
@@ -244,19 +244,19 @@ function SQL_Anywhere_Version_Check{
 
 ####################################################### IBM DB2 ##########################################################################################
 # TODO: Commands for IBM DB2 upgrade
-function IBM_DB2_Upgrade{
+function IBM_DB2_Upgrade(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -u -d
 	printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -u -d\n"
 }
 
 # TODO: Commands for IBM DB2 repository creation
-function IBM_DB2_Repo_Creation{
+function IBM_DB2_Repo_Creation(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o
     printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o \n"
 }
 
 # TODO: Commands for IBM DB2 repository version check
-function IBM_DB2_Version_Check{
+function IBM_DB2_Version_Check(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v
 	printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v \n"
 }
@@ -264,19 +264,19 @@ function IBM_DB2_Version_Check{
 
 ####################################################### MySQL ##########################################################################################
 # TODO: Commands for  MySQL upgrade
-function MySQL_Upgrade{
+function MySQL_Upgrade(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -u -d
 	printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -u -d\n"
 }
 
 # TODO: Commands for  MySQL repository creation
-function MySQL_Repo_Creation{
+function MySQL_Repo_Creation(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o
     printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o \n"
 }
 
 # TODO: Commands for MySQL repository version check
-function MySQL_Version_Check{
+function MySQL_Version_Check(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v
 	printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v \n"
 }
