@@ -262,21 +262,21 @@ function IBM_DB2_Version_Check{
 }
 
 
-####################################################### MYSQL ##########################################################################################
-# TODO: Commands for  MYSQL upgrade
-function MYSQL_Upgrade{
+####################################################### MySQL ##########################################################################################
+# TODO: Commands for  MySQL upgrade
+function MySQL_Upgrade{
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -u -d
 	printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -u -d\n"
 }
 
-# TODO: Commands for  MYSQL repository creation
-function MYSQLA_Repo_Creation{
+# TODO: Commands for  MySQL repository creation
+function MySQL_Repo_Creation{
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o
     printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o \n"
 }
 
-# TODO: Commands for MYSQL repository version check
-function MYSQL_Version_Check{
+# TODO: Commands for MySQL repository version check
+function MySQL_Version_Check{
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v
 	printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v \n"
 }
