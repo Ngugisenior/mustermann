@@ -26,7 +26,7 @@ if [[ ! " ${choices[@]} " =~ " ${choice_input} " ]];then
 	printf "\nUnknown Choice\n"
 else
 
-	printf "Specify one database type:\n1) SAP HANA\n2) Microsoft SQL Server\n3) Oracle\n4) Sybase\n5) SQL Anywhere\n6)IBM DB2\n7) MySQL"
+	printf "Specify one database type:\n1) SAP HANA\n2) Microsoft SQL Server\n3) Oracle\n4) Sybase\n5) SQL Anywhere\n6)IBM DB2\n7) MySQL\n"
 
 	read database_choice
 
