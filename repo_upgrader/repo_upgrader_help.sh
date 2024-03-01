@@ -201,7 +201,7 @@ function repo_manager(){
 			if [[ $(echo "${choice_input}" | tr '[:lower:]' '[:upper:]' ) == "U" ]]; then
 				case $database_choice in
 					"1")
-						SAP_HANA_Upgrade "${database_username}" "${database_password}" "${database_type}" ${database_server_name} "${database_port}" "${repo}" "HANA"
+						SAP_HANA_Upgrade "${database_username}" "${database_password}" "HANA" ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
 					;;
 					"2")
 						Microsoft_SQL_Server_Upgrade
@@ -228,7 +228,7 @@ function repo_manager(){
 			elif [[ $(echo "${choice_input}" | tr '[:lower:]' '[:upper:]' ) == "V" ]];then
 				case $database_choice in
 					"1")
-						SAP_HANA_Version_Check "${database_username}" "${database_password}" "${database_type}" ${database_server_name} "${database_port}" "${repo}" "HANA"
+						SAP_HANA_Version_Check "${database_username}" "${database_password}" "HANA" ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
 					;;
 					"2")
 						Microsoft_SQL_Server_Version_Check
@@ -255,7 +255,7 @@ function repo_manager(){
 			elif [[ $(echo "${choice_input}" | tr '[:lower:]' '[:upper:]' ) == "C" ]];then
 				case $database_choice in
 					"1")
-						SAP_HANA_Repo_Creation "${database_username}" "${database_password}" "${database_type}" ${database_server_name} "${database_port}" "${repo}" "HANA"
+						SAP_HANA_Repo_Creation "${database_username}" "${database_password}" "${database_type}" ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
 					;;
 					"2")
 						Microsoft_SQL_Repo_Creation
