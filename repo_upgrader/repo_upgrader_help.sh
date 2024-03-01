@@ -57,7 +57,7 @@ else
 		if [[ $(echo "${choice_input}" | tr '[:lower:]' '[:upper:]' ) == "U" ]]; then
 			case $database_choice in
 				"1")
-					SAP_HANA_Upgrade
+					SAP_HANA_Upgrade "${database_username}" "${database_password}" "${database_type}" ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
 				;;
 				"2")
 					Microsoft_SQL_Server_Upgrade
@@ -84,7 +84,7 @@ else
 		elif [[ $(echo "${choice_input}" | tr '[:lower:]' '[:upper:]' ) == "V" ]];then
 			case $database_choice in
 				"1")
-					SAP_HANA_Version_Check
+					SAP_HANA_Version_Check "${database_username}" "${database_password}" "${database_type}" ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
 				;;
 				"2")
 					Microsoft_SQL_Server_Version_Check
@@ -111,7 +111,7 @@ else
 		elif [[ $(echo "${choice_input}" | tr '[:lower:]' '[:upper:]' ) == "C" ]];then
 			case $database_choice in
 				"1")
-					SAP_HANA_Repo_Creation
+					SAP_HANA_Repo_Creation "${database_username}" "${database_password}" "${database_type}" ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
 				;;
 				"2")
 					Microsoft_SQL_Repo_Creation
@@ -145,20 +145,20 @@ fi
 ####################################################### SAP HANA ##########################################################################################
 # TODO: Commands for SAP HANA upgrade
 function SAP_HANA_Upgrade{
-	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -u -d
-	printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -u -d\n"
+	$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -u -d
+	printf "\n$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -u -d\n"
 }
 
 # TODO: Commands for SAP HANA repository creation
 function SAP_HANA_Repo_Creation{
-	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o
-    printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o \n"
+	$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -c -d -o
+    printf "\n$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -c -d -o \n"
 }
 
 # TODO: Commands for SAP HANA repository version check
 function SAP_HANA_Version_Check{
-	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v
-	printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v \n"
+	$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -v
+	printf "\n$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -v \n"
 }
 
 ####################################################### Microsoft SQL Server ##########################################################################################
