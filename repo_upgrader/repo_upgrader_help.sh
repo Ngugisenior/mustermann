@@ -33,15 +33,14 @@ function repo_database_type(){
 	echo "${DATABASE_TYPES[$1]}"
 }
 
-
+# Checks the repositories versions
 function repo_version_check(){
 	$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -v
 	printf "\n$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -v \n"
 }
 
-####################################################### SAP HANA ##########################################################################################
-# TODO: Commands for SAP HANA upgrade
-function SAP_HANA_Upgrade(){
+# Upgrades the repository
+function repo_upgrade(){
 	$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -u -d
 	printf "\n$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -u -d\n"
 }
@@ -52,12 +51,7 @@ function SAP_HANA_Repo_Creation(){
     printf "\n$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -c -d -o \n"
 }
 
-# # TODO: Commands for SAP HANA repository version check
-# function SAP_HANA_Version_Check(){
-# 	repo_version_check
-# 	# $LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -v
-# 	# printf "\n$LINK_DIR/bin/repoman -U"${1}" -P"${2}" -N"${3}" -S${4} -p"${5}" -Q"${6}" -t"${7}" -s -v \n"
-# }
+
 
 
 ####################################################### Microsoft SQL Server ##########################################################################################
@@ -71,12 +65,6 @@ function Microsoft_SQL_Server_Upgrade(){
 function Microsoft_SQL_Server_Repo_Creation(){
 	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o
     printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -c -d -o \n"
-}
-
-# TODO: Commands for Microsoft SQL Server repository version check
-function Microsoft_SQL_Server_Version_Check(){
-	$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v
-	printf "\n$LINK_DIR/bin/repoman -U"${database_username}" -P"${database_password}" -N"${database_type}" -S${database_server_name} -p"${database_port}" -Q"${repo}" -t"${database_repo_type}" -s -v \n"
 }
 
 
@@ -222,9 +210,7 @@ function repo_manager(){
 					"1"|"2")
 						repo_upgrade "${database_username}" "${database_password}" $(repo_database_type $("${database_index}" - 1)) ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
 					;;
-					# "2")
-					# 	Microsoft_SQL_Server_Upgrade
-					# ;;
+
 					"3")
 						Oracle_Upgrade
 					;;
@@ -249,9 +235,7 @@ function repo_manager(){
 					"1"|"2")
 						repo_version_check "${database_username}" "${database_password}" $(repo_database_type $((database_index - 1))) ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
 					;;
-					# "2")
-					# 	repo_version_check "${database_username}" "${database_password}" "HANA" ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
-					# ;;
+
 					"3")
 						Oracle_Version_Check
 					;;
@@ -273,12 +257,10 @@ function repo_manager(){
 				esac
 			elif [[ $(echo "${choice_input}" | tr '[:lower:]' '[:upper:]' ) == "C" ]];then
 				case $database_index in
-					"1" | "2")
+					"1"|"2")
 						SAP_HANA_Repo_Creation "${database_username}" "${database_password}" $(repo_database_type $("${database_index}" - 1)) ${database_server_name} "${database_port}" "${repo}" "${database_repo_type}"
 					;;
-					# "2")
-					# 	Microsoft_SQL_Repo_Creation
-					# ;;
+
 					"3")
 						Oracle_Repo_Creation
 					;;
