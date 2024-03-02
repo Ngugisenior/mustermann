@@ -34,7 +34,10 @@ function repo_database_type(){
 }
 
 # Checks the repositories versions
-# Upgrades the repository
+# Completed Tests for the following databases:
+	# - SAP HANA
+	# - Microsoft SQL Server
+
 # TODO: Version check test for the following databases
 	# Oracle
 	# Sybase
@@ -47,6 +50,10 @@ function repo_version_check(){
 }
 
 # Upgrades the repository
+# Completed Tests for the following databases:
+	# - SAP HANA
+	# - Microsoft SQL Server
+
 # TODO: Upgrade test for the following databases
 	# Oracle
 	# Sybase
@@ -59,6 +66,10 @@ function repo_upgrade(){
 }
 
 # Creates repositories
+# Completed Tests for the following databases:
+	# - SAP HANA
+	# - Microsoft SQL Server
+
 # TODO: Repo creation test for the following databases
 	# Oracle
 	# Sybase
@@ -116,19 +127,24 @@ function repo_manager(){
 					;;
 
 					"3")
-						Oracle_Upgrade
+						# TODO:
+						# Oracle_Upgrade
 					;;
 					"4")
-						Sybase_Upgrade
+						# TODO:
+						# Sybase_Upgrade
 					;;
 					"5")
-						SQL_Anywhere_Upgrade
+						# TODO:
+						# SQL_Anywhere_Upgrade
 					;;
 					"6")
-						IBM_DB2_Upgrade
+						# TODO:
+						# IBM_DB2_Upgrade
 					;;
 					"7")
-						MySQL_Upgrade
+						# TODO:
+						# MySQL_Upgrade
 					;;
 					*)
 						printf "\nUnknown Choice\n"
@@ -141,19 +157,24 @@ function repo_manager(){
 					;;
 
 					"3")
-						Oracle_Version_Check
+						# TODO:
+						# Oracle_Version_Check
 					;;
 					"4")
-						Sybase_Version_Check
+						# TODO:
+						# Sybase_Version_Check
 					;;
 					"5")
-						SQL_Anywhere_Version_Check
+						# TODO:
+						# SQL_Anywhere_Version_Check
 					;;
 					"6")
-						IBM_DB2_Version_Check
+						# TODO:
+						# IBM_DB2_Version_Check
 					;;
 					"7")
-						MySQL_Version_Check
+						# TODO:
+						# MySQL_Version_Check
 					;;
 					*)
 						printf "\nUnknown Choice\n"
@@ -166,19 +187,24 @@ function repo_manager(){
 					;;
 
 					"3")
-						Oracle_Repo_Creation
+						# TODO:
+						# Oracle_Repo_Creation
 					;;
 					"4")
-						Sybase_Repo_Creation
+						# TODO:
+						# Sybase_Repo_Creation
 					;;
 					"5")
-						SQL_Anywhere_Repo_Creation
+						# TODO:
+						# SQL_Anywhere_Repo_Creation
 					;;
 					"6")
-						IBM_DB2_Repo_Creation
+						# TODO:
+						# IBM_DB2_Repo_Creation
 					;;
 					"7")
-						MySQL_Repo_Creation
+						# TODO:
+						# MySQL_Repo_Creation
 					;;
 					*)
 						printf "\nUnknown Choice\n"
