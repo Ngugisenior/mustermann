@@ -1,30 +1,29 @@
 /* Scenario #2
+    Given the following [HR].[dbo].[employee] table
 
-Given the following employee table
+        employee_id | start_date | end_date
+        ------------|------------|----------
+        1           | 2024-03-04 | 2024-03-10
+        2           | 2024-03-05 | 2024-03-12
+        3           | 2024-03-08 | 2024-03-15
 
-    employee_id | start_date | end_date
-    ------------|------------|----------
-    1           | 2024-03-04 | 2024-03-10
-    2           | 2024-03-05 | 2024-03-12
-    3           | 2024-03-08 | 2024-03-15
-
-Return the following report showing the number of employees available at any time period.
-    date        count
-    ----------------
-    2024-03-04  1
-    2024-03-05  2
-    2024-03-06  2
-    2024-03-07  3
-    2024-03-08  2
-    2024-03-09  2
-    2024-03-10  1
-    2024-03-11  1
-    2024-03-12  1
-    2024-03-13  1
-    2024-03-14  1
-    2024-03-15  1
-    2024-03-16  0
-*/
+    Write a query to return the following report showing the number of employees available at any time period.
+        date        count
+        ----------------
+        2024-03-04  1
+        2024-03-05  2
+        2024-03-06  2
+        2024-03-07  3
+        2024-03-08  2
+        2024-03-09  2
+        2024-03-10  1
+        2024-03-11  1
+        2024-03-12  1
+        2024-03-13  1
+        2024-03-14  1
+        2024-03-15  1
+        2024-03-16  0
+    */
 
 
 

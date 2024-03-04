@@ -7,7 +7,7 @@
     | 2           | 2024/03/05 | 2024/03/12 |
     | 3           | 2024/03/08 | 2024/03/15 |
 
-    Write a query to return the following table\
+    Write a query to return the following table
     employee_id | start_date
     ------------|-----------
     1           | 2024-03-04
