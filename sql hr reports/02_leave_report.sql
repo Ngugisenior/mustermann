@@ -49,6 +49,7 @@ select * from leave_request_report
 
 /*
   - Use recursion to have the CTE recursively call it's self multiple times within it's own execution
+      - Recursively adds one day to the previous date untill it reaches the end_date
   - To stop the recursion chain we need to add a base case:
         The base case will be:
           - The current date is less than or equal to the end_date

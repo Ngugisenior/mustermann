@@ -32,6 +32,10 @@ CREATE PROCEDURE GetEmployeeAvailability
     @end_date DATE
 AS
 BEGIN
+    /* Recursive CTE
+            - Generates a list of dates between the start_date and end_date provided as parameters
+            - Recursively adds one day to the previous date untill it reaches the end_date
+    */
     WITH DateRange AS (
         SELECT @start_date AS date
         UNION ALL
@@ -39,6 +43,7 @@ BEGIN
         FROM DateRange
         WHERE DATEADD(DAY, 1, date) <= @end_date
     )
+    --- Join the CTE with the employee table and count the number of employees whose start_date and end_date falls within each date in the CTE
     SELECT d.date, COUNT(e.employee_id) AS count
     FROM DateRange d
     LEFT JOIN [HR].[dbo].[employee] e ON d.date >= e.start_date AND d.date <= e.end_date
