@@ -71,7 +71,7 @@ WITH leave_request_report AS (
 select * from leave_request_report
 
 
---- Order the results by columns [employee_id] and [start_date]
+--- Order the results by columns [employee_id] and [start_date]  (FINAL SOLUTION)
 
 WITH leave_request_report AS (
   SELECT employee_id, start_date, end_date
