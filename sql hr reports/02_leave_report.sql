@@ -36,7 +36,41 @@
 */
 
 
---- CTE 
+--- Display table [HR].[dbo].[leave_requests]
+  SELECT employee_id, start_date, end_date
+  FROM [HR].[dbo].[leave_requests]
+
+--- CTE to display table [HR].[dbo].[leave_requests]
+WITH leave_request_report AS (
+  SELECT employee_id, start_date, end_date
+  FROM [HR].[dbo].[leave_requests]
+)
+select * from leave_request_report
+
+/*
+  - Use recursion to have the CTE recursively call it's self multiple times within it's own execution
+  - To stop the recursion chain we need to add a base case:
+        The base case will be:
+          - The current date is less than or equal to the end_date
+              e.g:
+                WHERE DATEADD(day, 1, start_date) <= end_date
+          - Increment the current date by 1
+              e.g:
+                DATEADD(day, 1, start_date)
+*/
+
+WITH leave_request_report AS (
+  SELECT employee_id, start_date, end_date
+  FROM [HR].[dbo].[leave_requests]
+  UNION ALL
+  SELECT employee_id, dateadd(day,1,start_date), end_date
+  FROM leave_request_report
+  WHERE dateadd(day,1,start_date) <= end_date
+)
+select * from leave_request_report
+
+
+--- Order the results by columns [employee_id] and [start_date]
 
 WITH leave_request_report AS (
   SELECT employee_id, start_date, end_date
